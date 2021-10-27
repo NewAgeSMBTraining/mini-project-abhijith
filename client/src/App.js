@@ -37,9 +37,9 @@ function App() {
                <AuthRoute exact path="/profile/:status/:id/:ID">
                   <Profile />
                </AuthRoute>
-               <AuthRoute exact path="/resetpassword">
+               <Route exact path="/resetpassword">
                   <Reset />
-               </AuthRoute>
+               </Route>
                <AuthRoute exact path="/leaveRequest/:id">
                   <Leave />
                </AuthRoute>
