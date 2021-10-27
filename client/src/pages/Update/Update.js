@@ -22,6 +22,7 @@ function Update() {
     const [exp, setExp] = useState("");
     const [addExp, setAddExp] = useState([]);
     const {id} = useParams();
+    const {ID} = useParams():
     const history = useHistory()
 
     useEffect(()=>{
@@ -135,7 +136,7 @@ function Update() {
     return (
         <div className="regiRoot">
         <div className="regiMain">
-            <Navbar parse={true} id={id} home={`/admin/true/${id}`}/>
+            <Navbar parse={true} id={ID} home={`/admin/true/${ID}`}/>
             <div className="container regiForm">
                 <div className="row">
                     <div className="col-md-3">
