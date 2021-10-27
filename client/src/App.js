@@ -46,7 +46,7 @@ function App() {
                <AuthRoute exact path="/allLeaveRequests/:id">
                   <LeaveReq />
                </AuthRoute>
-               <AuthRoute exact path="/update/:id">
+               <AuthRoute exact path="/update/:id/:ID">
                   <Update />
                </AuthRoute>
             </Switch>
