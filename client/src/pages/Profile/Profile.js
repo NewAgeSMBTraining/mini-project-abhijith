@@ -193,7 +193,7 @@ function Register() {
                                        <div className="col-sm-offset-2 col-sm-12">
                                           <button
                                              onClick={() => {
-                                                history.push(`/update/${id}`);
+                                                history.push(`/update/${id}/${ID}`);
                                              }}
                                              className="btn  updateBtn"
                                           >
