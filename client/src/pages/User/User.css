@@ -1,0 +1,52 @@
+.userRoot {
+  padding: 5rem;
+}
+.userRoot .row {
+  box-shadow: 1px 1px 10px #22283180;
+}
+
+.userWelcome {
+  padding: 50px 30px;
+  font-family: "Comfortaa", cursive;
+}
+.leaveRoot {
+  padding: 50px 0px;
+}
+.leave {
+  overflow-x: auto;
+  overflow-y: scroll;
+  width: auto;
+  height: 500px;
+}
+.leaveStatus{
+    width: 100%;
+    height: 100px;
+    color: #DDDD;
+    background-color: #445463;
+    padding: 0.5rem;
+    margin: 5px 0px;
+}
+.proBtn {
+  background-color: #f05454;
+  color: #f6f5f5;
+}
+.proBtn:hover {
+  color: #f05454;
+  background-color: #f6f5f5;
+  border: solid 1px #f05454;
+  transition: ease-in-out 0.2s;
+}
+.btn-show{
+  color: #f05454;
+  border: solid 1px #f05454;
+  text-align: center;
+  padding: 4px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-show:hover{
+  color: #DDDD;
+  background-color: #f05454;
+  transition: ease-in-out 0.3s;
+}

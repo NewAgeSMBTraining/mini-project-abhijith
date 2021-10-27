@@ -1,0 +1,64 @@
+.list-root{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+.list-root h3{
+    font-family: 'Comfortaa', cursive;
+}
+.list-root .list{
+   overflow-x: auto;
+   overflow-y: scroll;
+   width: auto;
+   height: 470px;
+}
+.addNew{
+    margin: 25px 0;
+}
+
+table{
+    text-align: center;
+}
+.table thead{
+    background-color: #F05454;
+    color: #222831;
+}
+.btn-delete{
+    color: #F05454;
+    background-color: transparent;
+    border: solid 1px #F05454;
+    margin-left: 10px;
+}
+.btn-delete:hover{
+    color: #DDDDDD;
+    background-color: #F05454;
+}
+.btn-update{
+    background-color: #30475E;
+    color: #DDDDDD;
+    margin-left: 10px;
+}
+.btn-update:hover{
+    color: #30475E;
+    background-color: transparent;
+    border: 1px solid #30475E;
+}
+.search{
+    margin-bottom: 20px;
+}
+.search-input {
+    border: none;
+    border-bottom: solid 2px #30475E;
+    background-color: transparent;
+    outline: none;
+    padding-left: 8px;
+    width: 20%;
+}
+.search-input:focus{
+    border-bottom: solid 2px #F05454;
+    transition: ease-in-out 0.3s;
+}
+::placeholder{
+    color: #f0545477;
+}

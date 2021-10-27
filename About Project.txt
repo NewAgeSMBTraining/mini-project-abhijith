@@ -1,0 +1,3 @@
+﻿1. "http://localhost:3000/compose" to Register Admin
+2. Admin can register users. User’s usernames and passwords are sent through email.
+3. Leave request status reflects on the user page. Depending on the status(Accept or Reject) status colour changes and also the email sent to the respective user.
