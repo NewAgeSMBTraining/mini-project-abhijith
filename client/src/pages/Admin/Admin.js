@@ -27,7 +27,7 @@ function Admin() {
             } else {
                AdminAxios.get("allusers", {
                   headers: { "x-access-token": localStorage.getItem("token") },
-               }).then((res) => {
+               }).then((res) => { 
                   setUsers(res.data.users);
                });
             }

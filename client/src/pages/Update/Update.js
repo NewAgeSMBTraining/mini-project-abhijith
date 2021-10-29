@@ -23,6 +23,8 @@ function Update() {
     const [addExp, setAddExp] = useState([]);
     const {id} = useParams();
     const {ID} = useParams();
+    const {parse} = useParams();
+    const isTrue = parse === "true";
     const history = useHistory()
 
     useEffect(()=>{
@@ -69,7 +71,7 @@ function Update() {
             AdminAxios.put(`/updateuser/${id}`,generalInfo).then((res)=>{
                 console.log(res.data);
                 alert("User Updated Successfully ..👍")
-                history.push(`/admin/true/${id}`)
+                history.push(isTrue?`/admin/${isTrue}/${ID}` : `/user/${isTrue}/${ID}`);
             }).catch((error) =>{
                 console.log(error.message);
                 alert("Failed to update")
@@ -136,9 +138,9 @@ function Update() {
     return (
         <div className="regiRoot">
         <div className="regiMain">
-            <Navbar parse={true} id={ID} home={`/admin/true/${ID}`}/>
+            <Navbar parse={isTrue} id={ID} home={isTrue?`/admin/${isTrue}/${ID}`:`/user/${isTrue}/${ID}`}/>
             <div className="container regiForm">
-                <div className="row">
+                <div className="row"> 
                     <div className="col-md-3">
                         <div className="contact-info">
                             <h2>Become One of Us!</h2>
@@ -197,17 +199,26 @@ function Update() {
                                                 <label className="control-label " htmlFor="email">
                                                     Email ID<span>*</span>
                                                 </label>
-
-                                                <input
+                                                {isTrue?   <input
                                                     type="email"
                                                     className="form-control"
                                                     name="email"
                                                     id="email"
                                                     required
-                                                    disabled
                                                     value={generalInfo.email}
                                                     onChange={changeGeneralInfo}
-                                                />
+                                                />:
+                                                <input
+                                                type="email"
+                                                className="form-control"
+                                                name="email"
+                                                id="email"
+                                                required
+                                                disabled
+                                                value={generalInfo.email}
+                                                onChange={changeGeneralInfo}
+                                            />
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -405,7 +416,6 @@ function Update() {
                                                 </li>
                                             </div>
                                             ))}
-                                           
                                         </ul>
                                     </div>
                                     

@@ -26,9 +26,14 @@ function Login() {
       event.preventDefault();
       BaseURL.post("login", loginData)
          .then((res) => {
-            if (res.data.user.designation === "user" && res.data.token) {
-               localStorage.setItem("token", res.data.token);
-               history.push(`/user/${false}/${res.data.user._id}`);
+            if (res.data.user.designation === "user" && res.data.token ) {
+               if (res.data.block === false) {
+                  localStorage.setItem("token", res.data.token);
+                  history.push(`/user/${false}/${res.data.user._id}`);
+               } else {
+                  alert("Access denied \nContact your manager");
+                  history.push("/");
+               }
             } else if (res.data.user.designation !== "user" && res.data.token) {
                localStorage.setItem("token", res.data.token);
                history.push(`/admin/${true}/${res.data.user._id}`);

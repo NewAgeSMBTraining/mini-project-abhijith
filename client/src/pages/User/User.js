@@ -24,7 +24,7 @@ function User() {
          console.log(res.data.user.username);
       });
    }, [id, name, userName]);
-   console.log(proID);
+   console.log(proID); 
 
    //REDIRECT TO PROFILE
    function pushToProfile() {

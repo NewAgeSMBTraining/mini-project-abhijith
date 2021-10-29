@@ -189,26 +189,26 @@ function Register() {
                               </div>
                               <div className="form-group">
                                  <div className="form-row">
-                                    {isTrue ? (
                                        <div className="col-sm-offset-2 col-sm-12">
                                           <button
                                              onClick={() => {
-                                                history.push(`/update/${id}/${ID}`);
+                                                history.push(`/update/${isTrue}/${id}/${ID}`);
                                              }}
                                              className="btn  updateBtn"
                                           >
                                              update
                                           </button>
+                                          {isTrue ? (
                                           <button
-                                             onClick={() => {
-                                                blockOrUnblock();
+                                             onClick={(e) => {
+                                                blockOrUnblock(e)
                                              }}
                                              className="btn  blockBtn"
                                           >
                                              {block ? "Unblock" : "Block"}
                                           </button>
+                                              ) : null}
                                        </div>
-                                    ) : null}
                                  </div>
                               </div>
                            </div>

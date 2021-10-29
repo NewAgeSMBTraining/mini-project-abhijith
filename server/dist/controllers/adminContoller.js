@@ -36,12 +36,11 @@ var compose = /*#__PURE__*/function () {
             newAdmin = req.body;
             userName = req.body.username;
             designation = req.body.designation;
-            console.log(req.body);
-            _context.prev = 4;
-            _context.next = 7;
+            _context.prev = 3;
+            _context.next = 6;
             return _bcrypt["default"].hash(req.body.password, 10);
 
-          case 7:
+          case 6:
             hashPassword = _context.sent;
             admin = new _DBmodel.LoginModel({
               name: req.body.name,
@@ -49,31 +48,31 @@ var compose = /*#__PURE__*/function () {
               password: hashPassword,
               designation: designation
             });
-            _context.next = 11;
+            _context.next = 10;
             return admin.save();
 
-          case 11:
+          case 10:
             res.status(201).json({
               status: "ok",
               admin: admin
             });
-            _context.next = 18;
+            _context.next = 17;
             break;
 
-          case 14:
-            _context.prev = 14;
-            _context.t0 = _context["catch"](4);
+          case 13:
+            _context.prev = 13;
+            _context.t0 = _context["catch"](3);
             console.log(_context.t0);
             res.status(409).json({
               message: _context.t0.message
             });
 
-          case 18:
+          case 17:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[4, 14]]);
+    }, _callee, null, [[3, 13]]);
   }));
 
   return function compose(_x, _x2) {
@@ -98,8 +97,7 @@ var newUser = /*#__PURE__*/function () {
             random = Math.floor(Math.random() * 1000);
             userName = "".concat(req.body.first_name, "Newage");
             Password = "".concat(req.body.first_name.substring(0, 3), "$").concat(random, "#").concat(new Date().getFullYear());
-            user_data.username = userName;
-            console.log(token, decode); //nodemailer
+            user_data.username = userName; //nodemailer
 
             transporter = _nodemailer["default"].createTransport({
               service: "gmail",
@@ -177,14 +175,14 @@ var newUser = /*#__PURE__*/function () {
                 }());
               }
             } catch (error) {
-              console.log("ERRORR::" + error.message);
+              console.log(error.message);
               res.status(409).json({
                 status: "error",
                 message: error.message
               });
             }
 
-          case 11:
+          case 10:
           case "end":
             return _context3.stop();
         }
@@ -257,39 +255,50 @@ exports.getAllUsers = getAllUsers;
 
 var getAUser = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
-    var id, user;
+    var id, token, decode, user;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            id = req.params.id;
-            _context5.prev = 1;
-            _context5.next = 4;
+            id = req.params.id; //JWT TOKEN AUTH
+
+            token = req.headers["x-access-token"];
+            decode = _jsonwebtoken["default"].verify(token, process.env.JWT_SECRET);
+            _context5.prev = 3;
+
+            if (!decode) {
+              _context5.next = 9;
+              break;
+            }
+
+            _context5.next = 7;
             return _DBmodel.UserModel.findById(id);
 
-          case 4:
+          case 7:
             user = _context5.sent;
             res.status(200).json({
               status: "ok",
               user: user
             });
-            _context5.next = 11;
+
+          case 9:
+            _context5.next = 14;
             break;
 
-          case 8:
-            _context5.prev = 8;
-            _context5.t0 = _context5["catch"](1);
+          case 11:
+            _context5.prev = 11;
+            _context5.t0 = _context5["catch"](3);
             res.ststus(409).json({
               status: "ok",
               error: _context5.t0.message
             });
 
-          case 11:
+          case 14:
           case "end":
             return _context5.stop();
         }
       }
-    }, _callee5, null, [[1, 8]]);
+    }, _callee5, null, [[3, 11]]);
   }));
 
   return function getAUser(_x9, _x10) {

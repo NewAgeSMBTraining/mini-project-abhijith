@@ -165,9 +165,9 @@ function Leave() {
                            <div className="col-lg-2">
                               <button
                                  type="submit"
-                                 onClick={() => {
-                                    handleSubmit();
-                                 }}
+                                 // onClick={() => {
+                                 //    handleSubmit();
+                                 // }}
                                  className="btn leaveBtn"
                               >
                                  Submit
