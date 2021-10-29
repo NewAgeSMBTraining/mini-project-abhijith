@@ -22,7 +22,7 @@ function Update() {
     const [exp, setExp] = useState("");
     const [addExp, setAddExp] = useState([]);
     const {id} = useParams();
-    const {ID} = useParams():
+    const {ID} = useParams();
     const history = useHistory()
 
     useEffect(()=>{
