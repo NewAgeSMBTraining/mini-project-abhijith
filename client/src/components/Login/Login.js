@@ -27,7 +27,7 @@ function Login() {
       BaseURL.post("login", loginData)
          .then((res) => {
             if (res.data.user.designation === "user" && res.data.token ) {
-               if (res.data.block === false) {
+               if (res.data.user.block === false) {
                   localStorage.setItem("token", res.data.token);
                   history.push(`/user/${false}/${res.data.user._id}`);
                } else {
